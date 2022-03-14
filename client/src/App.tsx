@@ -1,8 +1,8 @@
-import { Box, List, ThemeIcon } from '@mantine/core'
-import { CheckCircleFillIcon } from '@primer/octicons-react';
-import useSWR from 'swr'
-import './App.css'
-import AddTodo from './components/AddTodo';
+import { Box, List, ThemeIcon } from "@mantine/core";
+import { CheckCircleFillIcon } from "@primer/octicons-react";
+import useSWR from "swr";
+import "./App.css";
+import AddTodo from "./components/AddTodo";
 
 export interface Todo {
   id: number;
@@ -33,31 +33,36 @@ function App() {
         padding: "2em",
         width: "100%",
         maxWidth: "40rem",
-        margin: "0 auto"
+        margin: "0 auto",
       })}
     >
       <List spacing="xs" size="sm" mb={12} center>
         {data?.map((todo) => {
-          return <List.Item key={`todo__${todo.id}`}
-            onClick={() => markTodoAsDone(todo.id)}
-            icon={
-              todo.done ? (<ThemeIcon color="teal" size={24} radius="xl">
-                <CheckCircleFillIcon size={20} />
-              </ThemeIcon>) : 
-              (<ThemeIcon color="gray" size={24} radius="xl">
-                <CheckCircleFillIcon size={20} />
-              </ThemeIcon>)
-            }
-          >
-            {todo.title}
-          </List.Item>
-          })}
+          return (
+            <List.Item
+              key={`todo__${todo.id}`}
+              onClick={() => markTodoAsDone(todo.id)}
+              icon={
+                todo.done ? (
+                  <ThemeIcon color="teal" size={24} radius="xl">
+                    <CheckCircleFillIcon size={20} />
+                  </ThemeIcon>
+                ) : (
+                  <ThemeIcon color="gray" size={24} radius="xl">
+                    <CheckCircleFillIcon size={20} />
+                  </ThemeIcon>
+                )
+              }
+            >
+              {todo.title}
+            </List.Item>
+          );
+        })}
       </List>
-
 
       <AddTodo mutate={mutate} />
     </Box>
-  )
+  );
 }
 
-export default App
+export default App;
