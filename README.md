@@ -1,3 +1,3 @@
 # todo-app-go-react
 
-#### Go + React
+#### Go + React + Typescript + Mantine
