@@ -1,4 +1,4 @@
-module github.com/andreMarqu3s/todo-app
+module github.com/andreMarqu3s/todo-app-go-react
 
 go 1.17
 
